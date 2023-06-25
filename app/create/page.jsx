@@ -22,22 +22,21 @@ const Create = () => {
         e.preventDefault();
         setSubmitting(true)
 
-        try{
-            const res = await fetch('/api/prompt/new',{
-                method: 'POST',
-                body: JSON.stringify({
-                    prompt: post.prompt,
-                    useId: session?.user.id,
-                    tag: post.tag
-                })
-            })
-
-            if(res.ok){
-                router.push('/')
+        try {
+            const response = await fetch("/api/prompt/new", {
+              method: "POST",
+              body: JSON.stringify({
+                prompt: post.prompt,
+                userId: session?.user.id,
+                tag: post.tag,
+              }),
+            });
+      
+            if (response.ok) {
+              router.push("/");
             }
-        }
-        catch(error){
-            console.log(error)
+        } catch (error) {
+            console.log(error);
         } finally {
             setSubmitting(false)
         }

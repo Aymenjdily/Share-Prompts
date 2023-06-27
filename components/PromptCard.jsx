@@ -25,10 +25,14 @@ const PromptCard = ({ prompt, handleTag, handleEdit, handleDelete }) => {
     }, 3000);
   }
 
+  const goToProfile = (id) => {
+    router.push(`/related/${id}`)
+  }
+
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div className="flex-1 flex justify-start gap-3 items-center cursor-pointer">
+        <div className="flex-1 flex justify-start gap-3 items-center cursor-pointer" onClick={() => goToProfile(prompt.creator._id)}>
           <Image 
             src={prompt.creator?.image}
             alt="user_image"
@@ -66,7 +70,7 @@ const PromptCard = ({ prompt, handleTag, handleEdit, handleDelete }) => {
       {
         session?.user.id === prompt.creator._id && pathName === '/profile' && (
           <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
-            <p className="font-inter text-sm text-green-600 cursor-pointer" onClick={handleEdit}>
+            <p className="font-inter text-sm text-blue-600 cursor-pointer" onClick={handleEdit}>
               Edit
             </p>
             <p className="font-inter text-sm text-red-600 cursor-pointer" onClick={handleDelete}>

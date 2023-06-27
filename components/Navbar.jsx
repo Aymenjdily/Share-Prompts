@@ -27,7 +27,7 @@ const Navbar = () => {
     <nav className="flex-between w-full mb-16 pt-3">
         <Link href="/" className="flex gap-2 flex-center">
             <Image src="/assets/images/logo.svg" alt="Logo" width={30} height={30} className="object-contain" />
-            <p className="Logo_text">
+            <p className="font-extrabold underline text-xl">
                 Prompts
             </p>
         </Link>
@@ -36,7 +36,7 @@ const Navbar = () => {
             {
                 session?.user ? (
                     <div className="flex gap-3 md:gap-5">
-                        <Link href="/create" className="black_btn">
+                        <Link href="/create" className="bg-black px-8 py-2 rounded-md font-semibold border-2 border-black text-white">
                             Create Post
                         </Link>
                         <button className="outline_btn" type="button" onClick={signOut}>
@@ -61,9 +61,9 @@ const Navbar = () => {
                                     type="button"
                                     key={provider.name}
                                     onClick={() => signIn(provider.id)}
-                                    className="black_btn"
+                                    className="bg-black px-8 py-2 rounded-md font-semibold hover:bg-white border-2 border-black hover:text-black duration-300 text-white"
                                 >
-                                    Sign In
+                                    Log in
                                 </button>
                             ))
                         }
@@ -108,7 +108,7 @@ const Navbar = () => {
                                             setToggle(false)
                                             signOut()
                                         }}
-                                        className="mt-5 w-full black_btn"
+                                        className="mt-5 w-full bg-black px-8 py-2 rounded-md font-semibold hover:bg-white border-2 border-black hover:text-black duration-300 text-white"
                                     >
                                         Sign Out
                                     </button>
@@ -124,7 +124,7 @@ const Navbar = () => {
                                     type="button"
                                     key={provider.name}
                                     onClick={() => signIn(provider.id)}
-                                    className="black_btn"
+                                    className="bg-black px-8 py-2 rounded-md font-semibold hover:bg-white border-2 border-black hover:text-black duration-300 text-white"
                                 >
                                     Sign In
                                 </button>
